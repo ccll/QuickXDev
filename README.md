@@ -42,12 +42,34 @@ A quick-cocos2d-x develop plugin for sublime text 2/3.
 ```
 you must set "quick_cocos2dx_root"
 
+You can also specify per-project settings in your .sublime-project file, should look like:
+
+```
+{
+    ...
+
+    "settings: {
+        ...
+
+        "QuickXDev": {
+            "compile_scripts_key": "encrypt_key"
+        }
+
+        ...
+    }
+
+    ...
+}
+```
+
+This is useful for setting a per-project encryption key and share between team members.
+
 ### goto definition
 
 select a word then right click ->Goto Definition or press key ctrl+shift+g
  * support framework (i.e. CCNodeExtend, display.newScene, newScene, display.CENTER)
  * support cocos2dx (i.e. CCMoveBy, getWritablePath, CCMoveTo:create, create, kCCHTTPRequestMethodGET)
- * support user definition 
+ * support user definition
 
 ### Create New Project
 

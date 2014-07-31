@@ -30,5 +30,14 @@ def md5(str):
 def isST3():
     return sublime.version()[0] == '3'
 
+class CollatedSettings:
+    def __init__(self, name):
+        self.global_settings = sublime.load_settings(name+".sublime-settings")
+        # Per-project settings
+        self.local_settings = sublime.active_window().active_view().settings().get(name)
+
+    def get(self, key, default):
+        return self.local_settings.get(key, self.global_settings.get(key, default))
+
 def loadSettings(name):
-    return sublime.load_settings(name+".sublime-settings")
+    return CollatedSettings(name)
